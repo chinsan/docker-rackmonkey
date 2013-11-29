@@ -23,5 +23,5 @@ RUN (chmod 755 /var/www/rackmonkey/rackdns.pl && a2enmod cgi && sed -i '14 i\ Di
 RUN (sed -i 's/^\s*#\s*plugin_xls/plugin_xls/' /etc/rackmonkey.conf && sed -i 's/^\s*#\s*plugin_dns/plugin_dns/' /etc/rackmonkey.conf &&  mkdir -p /var/log/supervisor)
 RUN (chown -R www-data:www-data /var/www/rackmonkey/ &&  chmod 755 /start.sh && chmod 755 /etc/apache2/foreground.sh)
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-EXPOSE 80 22
+EXPOSE 80
 CMD ["/bin/bash", "/start.sh"]
