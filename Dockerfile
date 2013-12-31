@@ -1,6 +1,6 @@
 # rackmonkey container
 # VERSION               0.0.3
-FROM angelrr7702/ubuntu-13.10
+FROM angelrr7702/ubuntu-13.10-sshd
 MAINTAINER Angel Rodriguez  "angelrr7702@gmail.com"
 RUN echo "deb http://archive.ubuntu.com/ubuntu saucy-backports main restricted universe" >> /etc/apt/sources.list
 RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q && apt-get -y -q autoclean && apt-get -y -q autoremove)
@@ -23,5 +23,5 @@ RUN (chmod 755 /var/www/rackmonkey/rackdns.pl && a2enmod cgi && sed -i '14 i\ Di
 RUN (sed -i 's/^\s*#\s*plugin_xls/plugin_xls/' /etc/rackmonkey.conf && sed -i 's/^\s*#\s*plugin_dns/plugin_dns/' /etc/rackmonkey.conf &&  mkdir -p /var/log/supervisor)
 RUN (chown -R www-data:www-data /var/www/ &&  chmod 755 /start.sh && chmod 755 /etc/apache2/foreground.sh)
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-EXPOSE 80
+EXPOSE 80 22
 CMD ["/bin/bash", "/start.sh"]
