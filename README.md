@@ -6,7 +6,7 @@ Dockerfile to be use to build image for docker container with Rackmonkey 1.2.5-1
 
 To use it :
 
-docker run -d -p 80 angelrr7702/rackmonkey
+docker run -d -p 80 -p 22 angelrr7702/rackmonkey
 
  them need to  check port that docker will associate with the container and them check it at your browser host:port
 
