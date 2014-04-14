@@ -1,10 +1,10 @@
 # rackmonkey container
-# VERSION               0.0.3
+# VERSION               0.1.0
 FROM angelrr7702/ubuntu-13.10-sshd
 MAINTAINER Angel Rodriguez  "angelrr7702@gmail.com"
 RUN echo "deb http://archive.ubuntu.com/ubuntu saucy-backports main restricted universe" >> /etc/apt/sources.list
-RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q && apt-get -y -q autoclean && apt-get -y -q autoremove)
-RUN apt-get install -y -q apache2 sqlite3 libdbi-perl libdbd-sqlite3-perl libhtml-template-perl libhtml-parser-perl supervisor libspreadsheet-writeexcel-perl libnet-dns-perl libapache2-mod-perl2 wget
+RUN (DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y -q )
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q apache2 sqlite3 libdbi-perl libdbd-sqlite3-perl libhtml-template-perl libhtml-parser-perl supervisor libspreadsheet-writeexcel-perl libnet-dns-perl libapache2-mod-perl2 wget
 ADD foreground.sh /etc/apache2/foreground.sh
 ADD start.sh /start.sh
 RUN wget http://downloads.sourceforge.net/project/rackmonkey/rackmonkey/1.2.5/rackmonkey-1.2.5-1.tar.gz
