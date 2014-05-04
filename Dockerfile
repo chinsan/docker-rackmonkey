@@ -1,8 +1,8 @@
 # rackmonkey container
-# VERSION               0.1.0
-FROM angelrr7702/ubuntu-13.10-sshd
+# VERSION               0.1.1
+FROM angelrr7702/docker-ubuntu-14.04-sshd
 MAINTAINER Angel Rodriguez  "angelrr7702@gmail.com"
-RUN echo "deb http://archive.ubuntu.com/ubuntu saucy-backports main restricted universe" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe" >> /etc/apt/sources.list
 RUN (DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -q && DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y -q )
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q apache2 sqlite3 libdbi-perl libdbd-sqlite3-perl libhtml-template-perl libhtml-parser-perl supervisor libspreadsheet-writeexcel-perl libnet-dns-perl libapache2-mod-perl2 wget
 ADD foreground.sh /etc/apache2/foreground.sh
@@ -24,4 +24,5 @@ RUN (sed -i 's/^\s*#\s*plugin_xls/plugin_xls/' /etc/rackmonkey.conf && sed -i 's
 RUN (chown -R www-data:www-data /var/www/ &&  chmod 755 /start.sh && chmod 755 /etc/apache2/foreground.sh)
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 80 22
+VOLUME ["/var/log/supervisor"]
 CMD ["/bin/bash", "/start.sh"]
