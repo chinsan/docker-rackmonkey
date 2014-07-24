@@ -24,5 +24,4 @@ RUN (sed -i 's/^\s*#\s*plugin_xls/plugin_xls/' /etc/rackmonkey.conf && sed -i 's
 RUN (chown -R www-data:www-data /var/www/ &&  chmod 755 /start.sh && chmod 755 /etc/apache2/foreground.sh)
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 80 22
-VOLUME ["/var/log/supervisor"]
 CMD ["/bin/bash", "/start.sh"]
