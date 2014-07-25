@@ -1,4 +1,4 @@
-rackmonkey
+docker-rackmonkey
 ==========
 
 Dockerfile to be use to build image for docker container with Rackmonkey 1.2.5-1
@@ -6,7 +6,7 @@ Dockerfile to be use to build image for docker container with Rackmonkey 1.2.5-1
 
 To use it :
 
-docker run -d -p 80 -p 22 angelrr7702/rackmonkey
+docker run -d -p 80 -p 22 angelrr7702/docker-rackmonkey
 
 Them need to  check port that docker will associate with the container and them check it at your browser host:port
  
@@ -19,4 +19,4 @@ https://flux.org.uk/projects/rackmonkey/
 This rackmonkey use sqlitle for database , if you need to use mysql you can use this Dockerfile and other file for reference ...
 
 
-Need to log in to the container by ssh (root:rootprovisional) and them : passwd ????? ==> to change root password
+Need to log in to the container by ssh (root:rootprovisional) and them : passwd  ==> to change root password
