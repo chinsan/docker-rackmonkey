@@ -21,6 +21,7 @@ RUN (chown www-data:www-data /var/lib/rackmonkey/rackmonkey.db &&  cp rackmonkey
 RUN (cp rackmonkey-1.2.5-1/perl/rackdns.pl /var/www/rackmonkey &&  chmod 755 /var/www/rackmonkey/rack2xls.pl)
 RUN (chmod 755 /var/www/rackmonkey/rackdns.pl && a2enmod cgi && sed -i '14 i\ DirectoryIndex \/rackmonkey\/rackmonkey.pl' /etc/apache2/sites-available/000-default.conf)
 RUN (sed -i 's/^\s*#\s*plugin_xls/plugin_xls/' /etc/rackmonkey.conf && sed -i 's/^\s*#\s*plugin_dns/plugin_dns/' /etc/rackmonkey.conf &&  mkdir -p /var/log/supervisor)
+RUN (rm -R /var/www/html &&  sed  -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www/' /etc/apache2/sites-available/000-default.conf)
 RUN (chown -R www-data:www-data /var/www/ &&  chmod 755 /start.sh && chmod 755 /etc/apache2/foreground.sh)
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 80 22
