@@ -20,3 +20,5 @@ This rackmonkey use sqlitle for database , if you need to use mysql you can use 
 
 
 Need to log in to the container by ssh (root:rootprovisional) and them : passwd  ==> to change root password
+
+Been move to another base-image ... no ready to be used at the momemt
