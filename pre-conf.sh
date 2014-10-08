@@ -34,7 +34,6 @@
   sed -i '14 i\ DirectoryIndex \/rackmonkey\/rackmonkey.pl' /etc/apache2/sites-available/000-default.conf
   sed -i 's/^\s*#\s*plugin_xls/plugin_xls/' /etc/rackmonkey.conf
   sed -i 's/^\s*#\s*plugin_dns/plugin_dns/' /etc/rackmonkey.conf
-  rm -R /var/www/html
   sed  -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www/' /etc/apache2/sites-available/000-default.conf
   rm -R rackmonkey-1.2.5-1
   chown -R www-data:www-data /var/www/
