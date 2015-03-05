@@ -30,6 +30,11 @@
   cp rackmonkey-1.2.5-1/perl/rackdns.pl /var/www/rackmonkey
   chmod 750 /var/www/rackmonkey/rack2xls.pl
   chmod 750 /var/www/rackmonkey/rackdns.pl
+  
+  #to fix error relate to ip address of container apache2
+  echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
+  ln -s /etc/apache2/conf-available/fqdn.conf /etc/apache2/conf-enabled/fqdn.conf
+  
   a2enmod cgi
   sed -i '14 i\ DirectoryIndex \/rackmonkey\/rackmonkey.pl' /etc/apache2/sites-available/000-default.conf
   sed -i 's/^\s*#\s*plugin_xls/plugin_xls/' /etc/rackmonkey.conf
