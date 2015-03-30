@@ -22,11 +22,15 @@ To run container use the command below:
 
       $ docker run -d -p 80 quantumobject/docker-rackmonkey
 
-Them need to  check port that docker will associate with the container and them check it at your browser host:port
- 
+
+## Accessing the Rackmonkey applications:
+
+After that check with your browser at addresses plus the port assigined by docker:
+
+  - **http://host_ip:port/**
 
 
-This rackmonkey use sqlitle for database , if you need to use mysql you can use this Dockerfile and other file for reference ...
+This rackmonkey use sqlitle for database , if you need to use mysql you can use this Dockerfile and other file for reference to create your own container.
 
 ## More Info
 
@@ -34,8 +38,11 @@ About [Rackmonkey][1]
 
 To help improve this container [docker-rackmonkey][5]
 
+Example of [Rackmonkey][6]
+
 [1]:https://flux.org.uk/projects/rackmonkey
 [2]:https://www.docker.com
 [3]:https://flux.org.uk/projects/rackmonkey
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-rackmonkey
+[6]:http://www.quantumobject.com:49155
